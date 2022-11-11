@@ -1,27 +1,26 @@
-# Angularlinux
+# angular-environment-variables-with-processenv
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+This repo shows how to utilize `process.env.YOUR_ENV_VARS` with Angular.
 
-## Development server
+By default, Angular uses the `src/environments/environment.prod.ts` or `src/environments/environment.ts` folder for environment variables. This differs from other SPAs where you can pass them in via `process.env.` and their respective prefix to expose them to the browser.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The main points to review are:
+- `package.json`: 
 
-## Code scaffolding
+```json
+  "scripts": {
+    "ng": "ng",
+    "config": "ts-node ./scripts/setenv.ts",
+    "dev": "npm run config -- --environment=dev && ng serve",
+    "build": "npm run config -- --environment=prod && ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  }
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Note the "config" script which is being ran in "build". We use `yargs` to set the environment here. Change this as needed (eg., dev, uat, prod, etc.)
 
-## Build
+- `scripts/setenv.ts`:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This file picks up the environment we specify (above) through `process.env.` and writes out whatever environment variable's we want to the `src/environments/` file. This picks up 
