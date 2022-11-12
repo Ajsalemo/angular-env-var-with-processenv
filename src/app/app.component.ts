@@ -16,9 +16,9 @@ export class AppComponent {
 
   ngOnInit() {
     if (this.isProduction) {
-      this.prodEnvVar = prod['GOOGLE_MAPS_URI'] ?? "No environment variable defined";
+      this.prodEnvVar = prod.GOOGLE_MAPS_URI ?? "No environment variable defined";
     } else {
-      this.nonProdEnvVar = nonProd['GOOGLE_MAPS_URI'] ?? "No environment variable defined";
+      this.nonProdEnvVar = nonProd.GOOGLE_MAPS_URI ?? "No environment variable defined";
     }
   }
 }
