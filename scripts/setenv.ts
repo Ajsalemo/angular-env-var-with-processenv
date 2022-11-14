@@ -20,7 +20,7 @@ export const environment = {
    SPOTIFY_API_URI: "${process.env.SPOTIFY_API_URI}"
 };
 `;
-// write the content to the respective file
+// Write our variables out to environment.<env>.ts
 writeFile(targetPath, environmentFileContent, (err: any) => {
   if (err) {
     console.log(err);
