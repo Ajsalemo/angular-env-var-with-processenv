@@ -17,6 +17,7 @@ const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
    GOOGLE_MAPS_URI: "${process.env.GOOGLE_MAPS_URI}",
+   SPOTIFY_API_URI: "${process.env.SPOTIFY_API_URI}"
 };
 `;
 // write the content to the respective file

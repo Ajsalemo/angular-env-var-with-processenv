@@ -1,24 +1,19 @@
 import { Component } from '@angular/core';
-import { argv } from 'process';
-import { environment as nonProd } from 'src/environments/environment';
 import { environment as prod } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  isProduction = argv['encironment'] === 'prod';
-  nonProdEnvVar: string;
-  prodEnvVar: string;
-  envVar: string;
+  googleEnvVar: string;
+  spotifyEnvVar: string;
 
   ngOnInit() {
-    if (this.isProduction) {
-      this.prodEnvVar = prod.GOOGLE_MAPS_URI ?? "No environment variable defined";
-    } else {
-      this.nonProdEnvVar = nonProd.GOOGLE_MAPS_URI ?? "No environment variable defined";
-    }
+    console.log(this.googleEnvVar);
+    console.log(this.spotifyEnvVar);
+    this.googleEnvVar = prod['GOOGLE_MAPS_URI'] ?? 'No environment variable defined';
+    this.spotifyEnvVar = prod['SPOTIFY_API_URI'] ?? 'No environment variable defined';
   }
 }
