@@ -2,7 +2,7 @@
 
 This repo shows how to utilize `process.env.YOUR_ENV_VARS` with Angular.
 
-By default, Angular uses the `src/environments/environment.prod.ts` or `src/environments/environment.ts` folder for environment variables. This differs from other SPAs where you can pass them in via `process.env.` and their respective prefix to expose them to the browser.
+By default, Angular uses the `src/environments/environment.prod.ts` or `src/environments/environment.ts` folder for environment variables - and assumes you will be hardcoding property and values directly within. This differs from other SPAs where you can pass them in via `process.env.` and their respective prefix to expose them to the browser.
 
 The main points to review are:
 - `package.json`: 
