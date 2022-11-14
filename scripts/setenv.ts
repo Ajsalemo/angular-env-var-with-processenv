@@ -1,7 +1,7 @@
 const { writeFile } = require('fs');
 const { argv } = require('yargs');
 
-// read environment variables from .env file
+// Read environment variables from .env file
 require('dotenv').config();
 
 // read the command line arguments passed with yargs
@@ -11,7 +11,7 @@ const targetPath = isProduction
   ? `./src/environments/environment.prod.ts`
   : `./src/environments/environment.ts`;
 
-// dotenv gives up access to process.env
+// Dotenv gives up access to process.env
 // Change these environment variables as needed
 const environmentFileContent = `
 export const environment = {
