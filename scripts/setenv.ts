@@ -4,7 +4,7 @@ const { argv } = require('yargs');
 // Read environment variables from .env file
 require('dotenv').config();
 
-// read the command line arguments passed with yargs
+// Read the command line arguments passed with yargs
 const environment = argv['environment'];
 const isProduction = environment === 'prod';
 const targetPath = isProduction
